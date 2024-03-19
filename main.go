@@ -11,6 +11,7 @@ func main() {
 	r := http.NewServeMux()
 	r.HandleFunc("GET /", rootHandler)
 	r.HandleFunc("GET /list", listHandler)
+	r.HandleFunc("GET /hi", func(w http.ResponseWriter, r *http.Request) { fmt.Fprint(w, "hi") })
 
 	log.Fatal(http.ListenAndServe(":9190", r))
 }
