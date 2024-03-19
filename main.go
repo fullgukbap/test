@@ -9,7 +9,7 @@ import (
 
 func main() {
 	r := http.NewServeMux()
-	r.HandleFunc("GET /", RootHandler)
+	r.HandleFunc("/", RootHandler)
 
 	log.Fatal(http.ListenAndServe(":9000", r))
 }
