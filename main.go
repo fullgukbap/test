@@ -9,14 +9,20 @@ import (
 
 func main() {
 	r := http.NewServeMux()
-	r.HandleFunc("GET /", RootHandler)
+	r.HandleFunc("GET /", rootHandler)
+	r.HandleFunc("GET /list", listHandler)
 
-	log.Fatal(http.ListenAndServe(":9000", r))
+	log.Fatal(http.ListenAndServe(":9190", r))
 }
 
-func RootHandler(w http.ResponseWriter, r *http.Request) {
+func rootHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Random number is : %v", GetRandomNumber())
+}
+
+func listHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprint(w, "사실 아무것도 없지롱")
 }
 
 func GetRandomNumber() int {
