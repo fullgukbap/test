@@ -13,7 +13,7 @@ func main() {
 	r.HandleFunc("GET /list", listHandler)
 	r.HandleFunc("GET /hi", func(w http.ResponseWriter, r *http.Request) { fmt.Fprint(w, "hi") })
 
-	log.Fatal(http.ListenAndServe(":9190", r))
+	log.Fatal(http.ListenAndServe(":10000", r))
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
